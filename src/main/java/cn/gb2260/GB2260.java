@@ -100,7 +100,7 @@ public class GB2260 {
 
         Pattern pattern = Pattern.compile("^" + code.substring(0, 2) + "\\d{2}00$");
         for (String key : data.keySet()) {
-            if (pattern.matcher(key).matches()) {
+            if (pattern.matcher(key).matches() && !code.equals(key)) {
                 Division division = getDivision(key);
                 division.setProvince(province.getName());
                 rv.add(division);
@@ -126,7 +126,7 @@ public class GB2260 {
 
         Pattern pattern = Pattern.compile("^" + code.substring(0, 4) + "\\d+$");
         for (String key : data.keySet()) {
-            if (pattern.matcher(key).matches()) {
+            if (pattern.matcher(key).matches() && !code.equals(key)) {
                 Division division = getDivision(key);
                 division.setProvince(province.getName());
                 division.setPrefecture(prefecture.getName());
